@@ -18,10 +18,22 @@ main {
 }
 
 .card {
-    width: 70%; /*Precisa ser ajustado*/
+    display: flex;
+    flex-direction: column;
+    width: 50rem; /*Precisa ser ajustado*/
     height: 90%;
     background: linear-gradient(180deg, rgba(43, 43, 43, 0.95), rgba(43, 43, 43, 0.266)) padding-box, 
     linear-gradient(rgba(104, 104, 104, 1), rgba(104, 104, 104, 0)) border-box;
     border-radius: 30px;
     border: 2px solid transparent;
+    padding: 3rem;
+    box-sizing: border-box;
+}
+
+.card__title {
+    font-size: 4rem;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+
 }
