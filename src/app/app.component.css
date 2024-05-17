@@ -59,3 +59,43 @@ main {
     color: #fff;
     padding: 2rem 0 2rem 1.6rem;
 }
+
+.input-valor {
+    font-size: 3rem;
+    color: #fff;
+    padding: 2rem 1.6rem;
+    border: 1.3px solid #79747e;
+    border-radius: 5px;
+    background-color: transparent;
+    margin-bottom: 4.4rem;
+}
+
+.button-calcular {
+    font-size: 1.8rem;
+    font-weight: 500;
+    background-color: #f52222;
+    padding: 1.5rem;
+    border-radius: 25px;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+
+.placeholder {
+    font-size: 2.8rem;
+    color: #bbb;
+    text-align: center;
+    padding: 9rem;
+}
+
+.resultado_rodape {
+    display: none;
+}
+
+.resultado {
+
+}
+
+.rodape {
+
+}
