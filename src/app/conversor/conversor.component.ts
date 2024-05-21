@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './conversor.component.css'
 })
 export class ConversorComponent {
+  calcular() {
+    alert("Usando o Event Binding")
+  }
 
 }
