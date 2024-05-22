@@ -4,15 +4,11 @@
             <h1 class="card__title">CONVERSOR DE MOEDAS</h1>
             <label class="label mt-3" for="converter-de">CONVERTER DE</label>
             <select class="dropdown" name="" id="converter-de">
-                <option value="value1">REAL</option>
-                <option value="value1">DOLAR AMERICANO</option>
-                <option value="value1">EURO</option>
+                <option *ngFor="let moeda of moedasList" value="moeda.codigo">{{moeda.descricao}}</option>
             </select>
             <label class="label mt-3" for="converter-para">CONVERTER PARA</label>
             <select class="dropdown" name="" id="converter-para">
                 <option class="dropdown__option" value="value1">REAL</option>
-                <option class="dropdown__option" value="value1">DOLAR AMERICANO</option>
-                <option class="dropdown__option" value="value1">EURO</option>
             </select> 
             <label class="label mt-3" for="">VALOR</label>
             <input class="input-valor" type="number" id="">
