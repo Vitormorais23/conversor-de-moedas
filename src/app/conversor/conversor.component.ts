@@ -9,11 +9,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './conversor.component.html',
   styleUrl: './conversor.component.css'
 })
+
 export class ConversorComponent implements OnInit {
 
-  moedasList: {codigo: string, descricao: string}[] = []
-moedas: any;
-private _moeda: any;
+  moedasList: {codigo: string, descricao: string}[] = [] 
   
   // Classe para consumir arquivos externos de http - uma API
   constructor(private http: HttpClient) {
