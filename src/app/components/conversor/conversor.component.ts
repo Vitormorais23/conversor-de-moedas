@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Moeda } from '../../models/moeda.model';
 
 @Component({
   selector: 'app-conversor',
@@ -12,24 +13,15 @@ import { Component, OnInit } from '@angular/core';
 
 export class ConversorComponent implements OnInit {
 
-  moedasList: {codigo: string, descricao: string}[] = [] 
-  
+  moedasList: Moeda[] = []
+
   // Classe para consumir arquivos externos de http - uma API
-  constructor(private http: HttpClient) {
+  constructor() {
 
   }
 
   ngOnInit(): void {
-    this.http.get('https://economia.awesomeapi.com.br/json/available/uniq').subscribe((_moedas: any) => {
-      console.log(_moedas)
-      Object.keys(_moedas).forEach(key => {
-        this.moedasList.push({
-          codigo: key,
-          descricao: _moedas[key]
-        })
-      })
-      console.log(this.moedasList)
-    })
+    
   }
 
   calcular() {

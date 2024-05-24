@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "./header/header.component";
-import { ConversorComponent } from "./conversor/conversor.component"
+import { HeaderComponent } from './components/header/header.component';
+import { ConversorComponent } from "./components/conversor/conversor.component"
 
 @Component({
     selector: 'app-root',
