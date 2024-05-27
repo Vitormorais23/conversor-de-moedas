@@ -7,7 +7,7 @@ import { Observable, map, pipe } from 'rxjs';
   providedIn: 'root'
 })
 
-export class AwesomeapiService {
+export class AwesomeApiService {
 
   constructor(private http: HttpClient) { }
 
