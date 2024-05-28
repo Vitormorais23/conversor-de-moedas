@@ -19,7 +19,7 @@ export class ConversorComponent implements OnInit {
 
   moedaOrigem?: Moeda
   moedaDestino?: Moeda
-  valor?: Moeda
+  valor?: number
 
   // Classe para consumir arquivos externos de http - uma API
   constructor(private service: AwesomeApiService) {
@@ -36,13 +36,16 @@ export class ConversorComponent implements OnInit {
 
   setDefaultValues() {
     this.moedaOrigem = {
+      codigo: 'USD',
+      descricao: 'Dólar Americano'
+    }
+    
+    this.moedaDestino = {
       codigo: 'BRL',
       descricao: 'Real Brasileiro'
     }
 
-    this.moedaDestino = {
-      codigo: 'USD',
-      descricao: 'Dólar Americano'}
+    this.valor = 1
   }
 
   compareMoedaFn(m1: Moeda, m2: Moeda): boolean {
@@ -53,6 +56,12 @@ export class ConversorComponent implements OnInit {
     console.log(`moedaOrigem: ${JSON.stringify(this.moedaOrigem)}`)
     console.log(`moedaDestino: ${JSON.stringify(this.moedaDestino)}`)
     console.log(`valor: ${this.valor}`)
+
+    if (this.moedaOrigem && this.moedaDestino) {
+      this.service.getCotacao(this.moedaOrigem, this.moedaDestino).subscribe(value => {
+        console.log(value)
+      })
+    }
   }
 
 }

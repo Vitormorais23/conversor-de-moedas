@@ -10,7 +10,7 @@
             <select class="dropdown" name="" id="converter-para" [(ngModel)]="moedaDestino" [compareWith]="compareMoedaFn">
                 <option *ngFor="let moeda of moedasList" [ngValue]="moeda">{{moeda.descricao}}</option>
             </select> 
-            <label class="label mt-3" for="">VALOR</label>
+            <label class="label mt-3" for="">VALOR ({{moedaOrigem?.codigo}}):</label>
             <input class="input-valor" type="number" id="" [(ngModel)]="valor">
 
             <button class="button-calcular ff-roboto" type="button" (click)="calcular()">CALCULAR</button>
