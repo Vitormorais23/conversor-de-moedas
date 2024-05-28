@@ -3,15 +3,15 @@
         <div class="card">
             <h1 class="card__title">CONVERSOR DE MOEDAS</h1>
             <label class="label mt-3" for="converter-de">CONVERTER DE</label>
-            <select class="dropdown" name="" id="converter-de">
-                <option *ngFor="let moeda of moedasList" value="moeda.codigo">{{moeda.descricao}}</option>
+            <select class="dropdown" name="" id="converter-de" [(ngModel)]="moedaOrigem">
+                <option *ngFor="let moeda of moedasList" [ngValue]="moeda">{{moeda.descricao}}</option>
             </select>
             <label class="label mt-3" for="converter-para">CONVERTER PARA</label>
-            <select class="dropdown" name="" id="converter-para">
-                <option *ngFor="let moeda of moedasList" value="moeda.codigo">{{moeda.descricao}}</option>
+            <select class="dropdown" name="" id="converter-para" [(ngModel)]="moedaDestino">
+                <option *ngFor="let moeda of moedasList" [ngValue]="moeda">{{moeda.descricao}}</option>
             </select> 
             <label class="label mt-3" for="">VALOR</label>
-            <input class="input-valor" type="number" id="">
+            <input class="input-valor" type="number" id="" [(ngModel)]="valor">
 
             <button class="button-calcular ff-roboto" type="button" (click)="calcular()">CALCULAR</button>
 
