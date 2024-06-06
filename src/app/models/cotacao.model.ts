@@ -4,8 +4,8 @@ export class Cotacao {
     createDate?: Date | null;
 
     constructor(value?: any) {
-        this.bid = value?.bid ?? 0
-        this.ask = value?.ask ?? 0
+        this.bid = Number(value?.bid)
+        this.ask = Number(value?.ask)
         this.createDate = value?.create_date ? new Date(value?.create_date) : null
     }
 

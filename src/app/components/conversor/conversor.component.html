@@ -14,16 +14,19 @@
             <input class="input-valor" type="number" id="" [(ngModel)]="valor">
 
             <button class="button-calcular ff-roboto" type="button" (click)="calcular()">CALCULAR</button>
-
-            <div class="placeholder">Clique em calcular</div>
-
-            <div class="resultado_rodape">
+            
+            <div *ngIf="resultado && resultado > 0; else placeholder" class="resultado_rodape">
                 <span class="resultado">4,9234 BRL</span>
                 <div class="rodape">
                     <div>DATA DA COTAÇÃO UTILIZADA:</div>
                     <div>TAXA: 1 DOLAR AMERICANO EQUIVALE A 4,9234 REAL BRASILEIRO</div>
                 </div>
             </div>
+
+            <ng-template #placeholder>
+                <div class="placeholder">Clique em calcular</div>
+            </ng-template>
+
 
         </div>
     </div>
