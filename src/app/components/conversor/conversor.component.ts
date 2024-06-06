@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Moeda } from '../../models/moeda.model';
 import { AwesomeApiService } from '../../services/awesomeapi.service';
 import { FormsModule } from '@angular/forms';
+import { style } from '@angular/animations';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-conversor',
@@ -21,6 +23,8 @@ export class ConversorComponent implements OnInit {
   moedaDestino?: Moeda
   valor: number = 0
   resultado?: number
+  valorCotacao: number = 0
+  dataCotacao: string = ''
 
   // Classe para consumir arquivos externos de http - uma API
   constructor(private service: AwesomeApiService) {
@@ -53,11 +57,21 @@ export class ConversorComponent implements OnInit {
     return m1 && m2 && m1.codigo === m2.codigo
   }
 
+  currencyFormat(value: number): string {
+    return Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: this.moedaDestino?.codigo,
+      maximumFractionDigits: 4
+    }).format(value)
+  }
+
   calcular() {
     if (this.moedaOrigem && this.moedaDestino && this.valor > 0) {
       this.service.getCotacao(this.moedaOrigem, this.moedaDestino).subscribe(cotacao => {
         // Realizar o calculo da cotação
         this.resultado = this.valor * cotacao.getValor()
+        this.valorCotacao = cotacao.getValor()
+        this.dataCotacao = Intl.DateTimeFormat('pt-BR').format(cotacao.createDate!)
       })
     }
   }

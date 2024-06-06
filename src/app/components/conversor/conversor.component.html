@@ -16,10 +16,10 @@
             <button class="button-calcular ff-roboto" type="button" (click)="calcular()">CALCULAR</button>
             
             <div *ngIf="resultado && resultado > 0; else placeholder" class="resultado_rodape">
-                <span class="resultado">4,9234 BRL</span>
+                <span class="resultado">{{currencyFormat(resultado)}}</span>
                 <div class="rodape">
-                    <div class="rodape__item">DATA DA COTAÇÃO UTILIZADA: 05/06/2024</div>
-                    <div class="rodape__item">TAXA: 1 DOLAR AMERICANO EQUIVALE A 4,9234 REAL BRASILEIRO</div>
+                    <div class="rodape__item">DATA DA COTAÇÃO UTILIZADA: {{dataCotacao}}</div>
+                    <div class="rodape__item">TAXA: 1 {{this.moedaOrigem?.descricao?.toUpperCase()}} EQUIVALE A {{currencyFormat(valorCotacao)}} {{this.moedaDestino?.descricao?.toUpperCase()}}</div>
                 </div>
             </div>
 
