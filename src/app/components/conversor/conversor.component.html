@@ -1,33 +1,42 @@
 <div class="conversor">
     <div class="conversor-container">
         <div class="card">
-            <h1 class="card__title">CONVERSOR DE MOEDAS</h1>
-            <label class="label mt-3" for="converter-de">CONVERTER DE</label>
-            <select class="dropdown" name="" id="converter-de" [(ngModel)]="moedaOrigem" [compareWith]="compareMoedaFn">
-                <option *ngFor="let moeda of moedasList" [ngValue]="moeda">{{moeda.descricao}}</option>
-            </select>
-            <label class="label mt-3" for="converter-para">CONVERTER PARA</label>
-            <select class="dropdown" name="" id="converter-para" [(ngModel)]="moedaDestino" [compareWith]="compareMoedaFn">
-                <option *ngFor="let moeda of moedasList" [ngValue]="moeda">{{moeda.descricao}}</option>
-            </select> 
-            <label class="label mt-3" for="">VALOR ({{moedaOrigem?.codigo}}):</label>
-            <input class="input-valor" type="number" id="" [(ngModel)]="valor">
+            <div class="card-container box">
+                <h1 class="card__title">CONVERSOR DE MOEDAS</h1>
+                <label class="label mt-3" for="converter-de">CONVERTER DE</label>
+                <select class="dropdown" name="" id="converter-de" [(ngModel)]="moedaOrigem"
+                    [compareWith]="compareMoedaFn">
+                    <option *ngFor="let moeda of moedasList" [ngValue]="moeda">{{moeda.descricao}}</option>
+                </select>
+                <label class="label mt-3" for="converter-para">CONVERTER PARA</label>
+                <select class="dropdown" name="" id="converter-para" [(ngModel)]="moedaDestino"
+                    [compareWith]="compareMoedaFn">
+                    <option *ngFor="let moeda of moedasList" [ngValue]="moeda">{{moeda.descricao}}</option>
+                </select>
+                <label class="label mt-3" for="">VALOR ({{moedaOrigem?.codigo}}):</label>
+                <input class="input-valor" type="number" id="" [(ngModel)]="valor">
 
-            <button class="button-calcular ff-roboto" type="button" (click)="calcular()">CALCULAR</button>
-            
-            <div *ngIf="resultado && resultado > 0; else placeholder" class="resultado_rodape">
-                <span class="resultado">{{currencyFormat(resultado)}}</span>
-                <div class="rodape">
-                    <div class="rodape__item">DATA DA COTAÇÃO UTILIZADA: {{dataCotacao}}</div>
-                    <div class="rodape__item">TAXA: 1 {{this.moedaOrigem?.descricao?.toUpperCase()}} EQUIVALE A {{currencyFormat(valorCotacao)}} {{this.moedaDestino?.descricao?.toUpperCase()}}</div>
+                <button class="button-calcular ff-roboto" type="button" (click)="calcular()">CALCULAR</button>
+
+                <div *ngIf="resultado && resultado > 0; else placeholder" class="resultado_rodape">
+                    <span class="resultado">{{currencyFormat(resultado)}}</span>
+                    <div class="rodape">
+                        <div class="rodape__item">DATA DA COTAÇÃO UTILIZADA: {{dataCotacao}}</div>
+                        <div class="rodape__item">TAXA: 1 {{this.moedaOrigem?.descricao?.toUpperCase()}} EQUIVALE A
+                            {{currencyFormat(valorCotacao)}} {{this.moedaDestino?.descricao?.toUpperCase()}}</div>
+                    </div>
                 </div>
+
+                <ng-template #placeholder>
+                    <div class="placeholder">Clique em calcular</div>
+                </ng-template>
             </div>
+            <div class="card-spinner box">
+                <div class="spinner">
 
-            <ng-template #placeholder>
-                <div class="placeholder">Clique em calcular</div>
-            </ng-template>
-
-
+                </div>
+                <span class="text-spinner">CALCULANDO...</span>
+            </div>
         </div>
     </div>
 </div>
