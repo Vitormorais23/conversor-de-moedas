@@ -26,6 +26,9 @@ export class ConversorComponent implements OnInit {
   valorCotacao: number = 0
   dataCotacao: string = ''
 
+  // variavel de controle para quando o loading deve ou não aparecer
+  loading: boolean = false
+
   // Classe para consumir arquivos externos de http - uma API
   constructor(private service: AwesomeApiService) {
 
@@ -67,11 +70,13 @@ export class ConversorComponent implements OnInit {
 
   calcular() {
     if (this.moedaOrigem && this.moedaDestino && this.valor > 0) {
+      this.loading = true
       this.service.getCotacao(this.moedaOrigem, this.moedaDestino).subscribe(cotacao => {
         // Realizar o calculo da cotação
         this.resultado = this.valor * cotacao.getValor()
         this.valorCotacao = cotacao.getValor()
         this.dataCotacao = Intl.DateTimeFormat('pt-BR').format(cotacao.createDate!)
+        this.loading = false
       })
     }
   }

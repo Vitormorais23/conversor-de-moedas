@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Moeda } from '../models/moeda.model';
-import { Observable, map } from 'rxjs';
+import { Observable, delay, map } from 'rxjs';
 import { Cotacao } from '../models/cotacao.model';
 
 @Injectable({
@@ -31,6 +31,7 @@ export class AwesomeApiService {
   getCotacao(moedaOrigem: Moeda, moedaDestino: Moeda): Observable<Cotacao>  {
     return this.http.get(`${this.URL_API}/last/${moedaOrigem.codigo}-${moedaDestino.codigo}`)
     .pipe(
+      delay(1000),
       map((value: any) => {
         let firstKey = Object.keys(value).shift()
         return new Cotacao(value[firstKey!])
