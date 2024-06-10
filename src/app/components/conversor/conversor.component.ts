@@ -68,15 +68,31 @@ export class ConversorComponent implements OnInit {
     }).format(value)
   }
 
+  private resetarResultado() {
+    this.resultado = undefined
+  }
+
+  onMoedaChange() {
+    this.resetarResultado()
+  }
+
   calcular() {
     if (this.moedaOrigem && this.moedaDestino && this.valor > 0) {
       this.loading = true
-      this.service.getCotacao(this.moedaOrigem, this.moedaDestino).subscribe(cotacao => {
-        // Realizar o calculo da cotação
-        this.resultado = this.valor * cotacao.getValor()
-        this.valorCotacao = cotacao.getValor()
-        this.dataCotacao = Intl.DateTimeFormat('pt-BR').format(cotacao.createDate!)
-        this.loading = false
+      this.resetarResultado()
+      this.service.getCotacao(this.moedaOrigem, this.moedaDestino).subscribe({
+        next: cotacao => {
+          // Realizar o calculo da cotação
+          this.resultado = this.valor * cotacao.getValor()
+          this.valorCotacao = cotacao.getValor()
+          this.dataCotacao = Intl.DateTimeFormat('pt-BR').format(cotacao.createDate!)
+          this.loading = false
+        },
+        error: (err) => {
+          console.log(JSON.stringify(err))
+          alert("Não foi possivel realizar a conversão!")
+          this.loading = false
+        }
       })
     }
   }
