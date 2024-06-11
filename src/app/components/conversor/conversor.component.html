@@ -3,16 +3,27 @@
         <div class="card">
             <div class="card-container box">
                 <h1 class="card__title">CONVERSOR DE MOEDAS</h1>
-                <label class="label mt-3" for="converter-de">CONVERTER DE</label>
-                <select class="dropdown" name="" id="converter-de" [(ngModel)]="moedaOrigem"
-                    [compareWith]="compareMoedaFn" (change)="onMoedaChange()">
-                    <option *ngFor="let moeda of moedasList" [ngValue]="moeda">{{moeda.descricao}}</option>
-                </select>
-                <label class="label mt-3" for="converter-para">CONVERTER PARA</label>
-                <select class="dropdown" name="" id="converter-para" [(ngModel)]="moedaDestino"
-                    [compareWith]="compareMoedaFn" (change)="onMoedaChange()">
-                    <option *ngFor="let moeda of moedasList" [ngValue]="moeda">{{moeda.descricao}}</option>
-                </select>
+                <div class="moedas mt-3">
+                    <div class="moedas-container">
+                        <label class="label" for="converter-de">CONVERTER DE</label>
+                        <select class="dropdown" name="" id="converter-de" [(ngModel)]="moedaOrigem"
+                            [compareWith]="compareMoedaFn" (change)="onMoedaChange()">
+                            <option *ngFor="let moeda of moedasList" [ngValue]="moeda">{{moeda.descricao}}</option>
+                        </select>
+                        <label class="label mt-3" for="converter-para">CONVERTER PARA</label>
+                        <select class="dropdown" name="" id="converter-para" [(ngModel)]="moedaDestino"
+                            [compareWith]="compareMoedaFn" (change)="onMoedaChange()">
+                            <option *ngFor="let moeda of moedasList" [ngValue]="moeda">{{moeda.descricao}}</option>
+                        </select>
+                    </div>
+                    <div class="moedas-switch">
+                        <img src="../assets/line-up.svg" alt="Linha superior do switch">
+                        <button type="button" class="btn-switch" (click)="switchMoedas()">
+                            <img src="../assets/switch.svg" alt="Ícone de troca de moedas">
+                        </button>
+                        <img src="../assets/line-down.svg" alt="Linha inferior do switch">
+                    </div>
+                </div>
                 <label class="label mt-3" for="">VALOR ({{moedaOrigem?.codigo}}):</label>
                 <input class="input-valor" type="number" id="" [(ngModel)]="valor">
 

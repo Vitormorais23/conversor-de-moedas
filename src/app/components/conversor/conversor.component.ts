@@ -76,6 +76,13 @@ export class ConversorComponent implements OnInit {
     this.resetarResultado()
   }
 
+  switchMoedas() {
+    let moedaAuxiliar = this.moedaOrigem
+    this.moedaOrigem = this.moedaDestino
+    this.moedaDestino = moedaAuxiliar
+    this.resetarResultado()
+  }
+
   calcular() {
     if (this.moedaOrigem && this.moedaDestino && this.valor > 0) {
       this.loading = true

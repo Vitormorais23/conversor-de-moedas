@@ -83,6 +83,34 @@
     margin-top: 3rem;
 }
 
+.moedas {
+    display: flex;
+    align-items: center;
+}
+
+.moedas-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.moedas-switch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0 0 1rem;
+}
+
+.btn-switch {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
 .dropdown {
     border: 2px solid #fff;
     border-radius: 4px;
