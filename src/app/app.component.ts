@@ -8,8 +8,7 @@ import { ConversorComponent } from "./components/conversor/conversor.component"
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [RouterOutlet, HeaderComponent, ConversorComponent]
+    imports: [RouterOutlet, HeaderComponent]
 })
 export class AppComponent {
-  title = 'lo-conversor-de-moedas.app';
 }
