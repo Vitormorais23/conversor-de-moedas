@@ -6,3 +6,17 @@ main {
     height: calc(100vh - 102px);
     
 }
+
+.bg {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.bg-conversor {
+    background-image: url(../assets/bg-conversor.png);
+}
+
+.bg-cotacoes {
+    background-image: url(../assets/bg-cotacao.png);
+}
