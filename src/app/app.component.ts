@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
     pathUrl: string = 'conversor'
 
     constructor(private router: Router) {
-
+        // Usado para capturar quando se altera a rota - ex: de /coversor para /cotacoes
     }
 
     ngOnInit(): void {
