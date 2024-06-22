@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AwesomeApiService } from '../../services/awesomeapi.service';
+import { Cotacao } from '../../models/cotacao.model';
 
 @Component({
   selector: 'app-cotacoes',
@@ -7,6 +9,15 @@ import { Component } from '@angular/core';
   templateUrl: './cotacoes.component.html',
   styleUrl: './cotacoes.component.css'
 })
-export class CotacoesComponent {
+export class CotacoesComponent implements OnInit {
 
+  constructor(private apiService: AwesomeApiService) {
+
+  }
+
+  ngOnInit(): void {
+    this.apiService.getCotacoes().subscribe((cotacoes: Cotacao[]) => {
+      console.log(cotacoes)
+    })
+  }
 }

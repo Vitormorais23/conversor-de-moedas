@@ -28,13 +28,24 @@ export class AwesomeApiService {
       );
   }
 
-  getCotacao(moedaOrigem: Moeda, moedaDestino: Moeda): Observable<Cotacao>  {
+  getCotacao(moedaOrigem: Moeda, moedaDestino: Moeda): Observable<Cotacao> {
     return this.http.get(`${this.URL_API}/last/${moedaOrigem.codigo}-${moedaDestino.codigo}`)
+      .pipe(
+        delay(1000),
+        map((value: any) => {
+          let firstKey = Object.keys(value).shift()
+          return new Cotacao(value[firstKey!])
+        })
+      )
+  }
+
+  getCotacoes(): Observable<Cotacao[]> {
+    let combinacoes = ['USD-BRL','CAD-BRL','EUR-BRL','GBP-BRL','ARS-BRL','BTC-BRL','JPY-BRL','CHF-BRL','AUD-BRL','MXN-BRL']
+    let moedas = combinacoes.join(',')
+    return this.http.get(`${this.URL_API}/last/${moedas}`)
     .pipe(
-      delay(1000),
-      map((value: any) => {
-        let firstKey = Object.keys(value).shift()
-        return new Cotacao(value[firstKey!])
+      map((cotacoes: any) => {
+        return Object.keys(cotacoes).map((key: string) => new Cotacao(cotacoes[key]))
       })
     )
   }
