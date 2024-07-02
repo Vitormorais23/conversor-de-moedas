@@ -37,7 +37,8 @@ export class Cotacao {
         return Intl.NumberFormat('pt-BR', {
             style: 'currency',
             currency: String(this.codein),
-            maximumFractionDigits: 4
+            maximumFractionDigits: 4,
+            minimumFractionDigits: 4,
           }).format(this.getValor())
     }
 }
