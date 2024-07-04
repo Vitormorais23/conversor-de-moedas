@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Moeda } from '../../models/moeda.model';
 import { AwesomeApiService } from '../../services/awesomeapi.service';
 import { FormsModule } from '@angular/forms';
-import { style } from '@angular/animations';
-import { ThisReceiver } from '@angular/compiler';
+import { SharedDataService } from '../../services/shared-data.service';
 
 @Component({
   selector: 'app-conversor',
@@ -30,14 +29,22 @@ export class ConversorComponent implements OnInit {
   loading: boolean = false
 
   // Classe para consumir arquivos externos de http - uma API
-  constructor(private service: AwesomeApiService) {
+  constructor(private service: AwesomeApiService, private sharedDataService: SharedDataService) {
 
   }
 
   ngOnInit(): void {
+    // Carregar usando o pipe async
    this.service.getMoedas().subscribe((moedas: Moeda[]) => {
     this.moedasList = moedas
    })
+
+  //  this.activatedRoute.queryParams.subscribe(params => {
+  //   console.log(params)
+  //  }) Posso fazer por QueryParameters porem fica mais complexo
+
+   console.log(this.sharedDataService.moedaOrigem)
+   console.log(this.sharedDataService.moedaDestino)
 
    this.setDefaultValues()
   }

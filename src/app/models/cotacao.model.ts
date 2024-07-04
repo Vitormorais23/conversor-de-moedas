@@ -1,6 +1,6 @@
 export class Cotacao {
-    code: String;
-    codein: String;
+    code: string;
+    codein: string;
     name: string;
     varBid: Number;
     bid: number;

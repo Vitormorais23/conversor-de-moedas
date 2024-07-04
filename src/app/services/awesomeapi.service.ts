@@ -28,6 +28,13 @@ export class AwesomeApiService {
       );
   }
 
+  getMoeda(code: string): Observable<Moeda | undefined> {
+    return this.getMoedas()
+    .pipe(map((moedas: Moeda[]) => {
+      return moedas.find((moeda: Moeda) => moeda.codigo === code)
+    }))
+  }
+
   getCotacao(moedaOrigem: Moeda, moedaDestino: Moeda): Observable<Cotacao> {
     return this.http.get(`${this.URL_API}/last/${moedaOrigem.codigo}-${moedaDestino.codigo}`)
       .pipe(
