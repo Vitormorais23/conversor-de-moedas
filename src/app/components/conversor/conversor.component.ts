@@ -43,19 +43,16 @@ export class ConversorComponent implements OnInit {
   //   console.log(params)
   //  }) Posso fazer por QueryParameters porem fica mais complexo
 
-   console.log(this.sharedDataService.moedaOrigem)
-   console.log(this.sharedDataService.moedaDestino)
-
    this.setDefaultValues()
   }
 
   setDefaultValues() {
-    this.moedaOrigem = {
+    this.moedaOrigem = this.sharedDataService.moedaOrigem ?? {
       codigo: 'USD',
       descricao: 'Dólar Americano'
     }
     
-    this.moedaDestino = {
+    this.moedaDestino = this.sharedDataService.moedaDestino ?? {
       codigo: 'BRL',
       descricao: 'Real Brasileiro'
     }

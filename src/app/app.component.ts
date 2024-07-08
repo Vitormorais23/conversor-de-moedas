@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent implements OnInit{
 
-    pathUrl: string = 'conversor'
+    rota: string = 'conversor'
 
     constructor(private router: Router) {
         // Usado para capturar quando se altera a rota - ex: de /coversor para /cotacoes
@@ -22,7 +22,10 @@ export class AppComponent implements OnInit{
     ngOnInit(): void {
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
-                this.pathUrl = event.url.replace('/', '')
+                const pathUrl = event.url.replace('/', '')
+                if (pathUrl.length > 0) {
+                    this.rota = pathUrl
+                }
             }
         })
     }
