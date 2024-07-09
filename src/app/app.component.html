@@ -1,7 +1,7 @@
-<div class="bg" ngClass="{{'bg-'+rota}}">
+<div class="full bg" ngClass="{{'bg-'+rota}}">
     <app-header></app-header>
     <main>
         <router-outlet></router-outlet>
     </main>
-    <!-- footer -->
+    <app-footer [rota]="rota"></app-footer>
 </div>

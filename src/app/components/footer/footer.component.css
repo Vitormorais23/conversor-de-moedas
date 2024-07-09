@@ -1,0 +1,21 @@
+.footer {
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-conversor {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.bg-cotacoes {
+    
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.copyrigth {
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    color: #f5f5f5;
+}
