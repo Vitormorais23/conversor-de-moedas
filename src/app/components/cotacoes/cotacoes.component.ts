@@ -43,7 +43,17 @@ export class CotacoesComponent implements OnInit {
       }
     }) 
 
-    
+  }
+
+  getClassBy(variacao: number): string|null{
+    if (variacao > 0) {
+      return 'variacao-positiva'
+    } else if (variacao < 0) {
+      return 'variacao-negativa'
+    } else {
+      return null
+    }
+  
   }
 
 }

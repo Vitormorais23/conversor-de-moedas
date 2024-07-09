@@ -2,7 +2,7 @@ export class Cotacao {
     code: string;
     codein: string;
     name: string;
-    varBid: Number;
+    varBid: number;
     bid: number;
     ask: number;
     createDate?: Date | null;
