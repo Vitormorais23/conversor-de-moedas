@@ -2,20 +2,23 @@
     <div class="card">
         <h1 class="title">COTAÇÕES EM TEMPO REAL</h1>
         <div class="divider"></div>
-        <div class="header">
-            <div class="header__item flex-2">MOEDA</div>
-            <div class="header__item flex-2">VARIAÇÃO</div>
-            <div class="header__item flex-1">VALOR R$</div>
-        </div>
-        <!-- Quando precisa repetir se utiliza o *ngFor -->
-        <div *ngFor="let cotacao of cotacoes" class="cotacao">
-            <div class="cotacao__item flex-2">{{cotacao.name}}</div>
-            <div class="cotacao__item flex-2" [ngClass]="getClassBy(cotacao.varBid)">{{cotacao.getVariacao()}}</div>
-            <!-- Funciona porém fica grande <div [ngClass]="{'variacao-positiva': cotacao.varBid > 0, 'variacao-negativa': cotacao.varBid < 0}" class="cotacao__item flex-2">{{cotacao.getVariacao()}}</div> -->
-            <div class="cotacao__item flex-1">{{this.cotacao.getValorMonetario()}}
-                <button class="btn-go-to-conversor" (click)="goToConversor(cotacao)">
-                    <img class="img-go-to-conversor" src="../assets/go-to-conversor.svg" alt="ícone para voltar no conversor">
-                </button>
+        
+            <div class="header">
+                <div class="header__item flex-2">MOEDA</div>
+                <div class="header__item flex-2">VARIAÇÃO</div>
+                <div class="header__item flex-1">VALOR R$</div>
+            </div>
+        <div class="card__content">    
+            <!-- Quando precisa repetir se utiliza o *ngFor -->
+            <div *ngFor="let cotacao of cotacoes" class="cotacao">
+                <div class="cotacao__item flex-2">{{cotacao.name}}</div>
+                <div class="cotacao__item flex-2" [ngClass]="getClassBy(cotacao.varBid)">{{cotacao.getVariacao()}}</div>
+                <!-- Funciona porém fica grande <div [ngClass]="{'variacao-positiva': cotacao.varBid > 0, 'variacao-negativa': cotacao.varBid < 0}" class="cotacao__item flex-2">{{cotacao.getVariacao()}}</div> -->
+                <div class="cotacao__item flex-1">{{this.cotacao.getValorMonetario()}}
+                    <button class="btn-go-to-conversor" (click)="goToConversor(cotacao)">
+                        <img class="img-go-to-conversor" src="../assets/go-to-conversor.svg" alt="ícone para voltar no conversor">
+                    </button>
+                </div>
             </div>
         </div>
     </div>

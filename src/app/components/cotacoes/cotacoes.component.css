@@ -3,14 +3,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2rem 2rem;
+    box-sizing: border-box;
 }
 
 .card {
-    height: 90%;
-    max-width: 97rem;
-    width: 50%;
+    width: 970px;
     border-radius: 1rem;
     background: rgba(255, 255, 255, 0.15);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
@@ -22,6 +25,12 @@
 .divider {
     height: 1px;
     background-color: black;
+}
+
+.card__content {
+    overflow-y: auto;
+    flex: 1;
+    scrollbar-width: none;
 }
 
 .header {
