@@ -48,3 +48,30 @@ header {
 .active {
     color: #F52222;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    header {
+        height: auto;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .logo {
+        margin: 16px 0 0 0;
+    }
+
+    .menu {
+        margin: 16px;
+        width: 100%;
+        gap: 0;
+        justify-content: space-evenly;
+    }
+    
+    .menu__item {
+        font-size: 20px;
+
+    }
+}
