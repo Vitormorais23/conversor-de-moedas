@@ -177,6 +177,17 @@
     font-size: 2rem;
 }
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .conversor-container {
+        width: 100%;
+    }
+
+    .mt-2 {
+        margin-top: 3.4rem;
+    }
+}
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) and (max-width: 992px) {
     .conversor-container {
