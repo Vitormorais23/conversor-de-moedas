@@ -36,4 +36,9 @@ main {
     .bg-conversor {
         filter: blur(10px);
     }
+
+    .bg-cotacoes {
+        background-image: url(../assets/bg-conversor.png);
+        filter: blur(10px);
+    }
 }

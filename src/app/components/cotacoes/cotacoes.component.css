@@ -42,15 +42,7 @@
 .header__item {
     font-size: 2.4rem;
     color: rgba(187, 187, 187, 1);
-
-}
-
-.flex-1 {
     flex: 1;
-}
-
-.flex-2 {
-    flex: 2;
 }
 
 .cotacao {
@@ -68,6 +60,7 @@
     display: flex;
     align-items: center;
     gap: 2.4rem;
+    flex: 1;
 }
 
 .variacao-positiva {
@@ -95,4 +88,33 @@
 .img-go-to-conversor:hover {
     content: url('../../../assets/go-to-conversor-hover.svg');
 
+}
+
+.justify-content-center {
+    display: flex;
+    justify-content: center;
+}
+
+.justify-content-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media only screen and (max-width: 600px) {
+    .title {
+        text-align: center;
+    }
+
+    .header__item {
+        font-size: 20px;
+    }
+
+    .cotacao__item {
+        font-size: 18px;
+    }
+
+    /* Padrão para mobile */
+    .hide-xs {
+        display: none;
+    }
 }
