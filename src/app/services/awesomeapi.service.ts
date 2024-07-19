@@ -24,7 +24,8 @@ export class AwesomeApiService {
               descricao: _moedas[key]
             }
           })
-        })
+        }),
+        map((_moedas: Moeda[]) => _moedas.sort((a, b) => a.descricao.localeCompare(b.descricao)))
       );
   }
 
