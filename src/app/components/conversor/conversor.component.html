@@ -8,12 +8,12 @@
                         <label class="label" for="converter-de">CONVERTER DE</label>
                         <select class="dropdown" name="" id="converter-de" [(ngModel)]="moedaOrigem"
                             [compareWith]="compareMoedaFn" (change)="onMoedaChange()">
-                            <option *ngFor="let moeda of moedasList" [ngValue]="moeda">{{moeda.descricao}}</option>
+                            <option *ngFor="let moeda of moedas$ | async" [ngValue]="moeda">{{moeda.descricao}}</option>
                         </select>
                         <label class="label mt-2" for="converter-para">CONVERTER PARA</label>
                         <select class="dropdown" name="" id="converter-para" [(ngModel)]="moedaDestino"
                             [compareWith]="compareMoedaFn" (change)="onMoedaChange()">
-                            <option *ngFor="let moeda of moedasList" [ngValue]="moeda">{{moeda.descricao}}</option>
+                            <option *ngFor="let moeda of moedas$ | async" [ngValue]="moeda">{{moeda.descricao}}</option>
                         </select>
                     </div>
                     <div class="moedas-switch">

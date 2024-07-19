@@ -10,7 +10,7 @@
             </div>
         <div class="card__content">    
             <!-- Quando precisa repetir se utiliza o *ngFor -->
-            <div *ngFor="let cotacao of cotacoes" class="cotacao">
+            <div *ngFor="let cotacao of cotacoes$ | async" class="cotacao">
                 <div class="cotacao__item">{{cotacao.name}}</div>
                 <div class="cotacao__item hide-xs justify-content-center" [ngClass]="getClassBy(cotacao.varBid)">{{cotacao.getVariacao()}}</div>
                 <!-- Funciona porém fica grande <div [ngClass]="{'variacao-positiva': cotacao.varBid > 0, 'variacao-negativa': cotacao.varBid < 0}" class="cotacao__item flex-2">{{cotacao.getVariacao()}}</div> -->
