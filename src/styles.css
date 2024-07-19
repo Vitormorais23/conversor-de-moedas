@@ -11,6 +11,10 @@ html {
     /* font-size 10px */
 }
 
+body {
+    height: 100dvh;
+}
+
 .ff-roboto {
     font-family: "Roboto", sans-serif;
     font-style: normal;
