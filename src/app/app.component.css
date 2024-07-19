@@ -37,8 +37,8 @@ main {
         filter: blur(10px);
     }
 
-    .bg-cotacoes {
+    /* .bg-cotacoes {
         background-image: url(../assets/bg-conversor.png);
         filter: blur(10px);
-    }
+    } */
 }

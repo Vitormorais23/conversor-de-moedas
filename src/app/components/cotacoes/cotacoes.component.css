@@ -105,16 +105,30 @@
         text-align: center;
     }
 
+    /* Padrão para mobile */
+    .hide-xs {
+        display: none;
+    }
+
+    .header {
+        padding: 24px;
+    }
+
+    .cotacao {
+        padding: 16px 24px;
+    }
+
     .header__item {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     .cotacao__item {
-        font-size: 18px;
+        font-size: 20px;
     }
+}
 
-    /* Padrão para mobile */
-    .hide-xs {
+@media only screen and (min-width: 600px) {
+    .hide {
         display: none;
     }
 }

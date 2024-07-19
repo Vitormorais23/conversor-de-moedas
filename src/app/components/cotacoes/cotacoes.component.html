@@ -14,7 +14,9 @@
                 <div class="cotacao__item">{{cotacao.name}}</div>
                 <div class="cotacao__item hide-xs justify-content-center" [ngClass]="getClassBy(cotacao.varBid)">{{cotacao.getVariacao()}}</div>
                 <!-- Funciona porém fica grande <div [ngClass]="{'variacao-positiva': cotacao.varBid > 0, 'variacao-negativa': cotacao.varBid < 0}" class="cotacao__item flex-2">{{cotacao.getVariacao()}}</div> -->
-                <div class="cotacao__item justify-content-end">{{this.cotacao.getValorMonetario()}}
+                <div class="cotacao__item justify-content-end">
+                    <span class="hide" [ngClass]="getClassBy(cotacao.varBid)">•</span>
+                    {{cotacao.getValorMonetario()}}
                     <button class="btn-go-to-conversor  hide-xs" (click)="goToConversor(cotacao)">
                         <img class="img-go-to-conversor" src="../assets/go-to-conversor.svg" alt="ícone para voltar no conversor">
                     </button>
